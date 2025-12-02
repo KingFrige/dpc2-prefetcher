@@ -1,4 +1,9 @@
-all: dpc2sim-stream dpc2sim-ampm-lite build-dpc2
+BIN_DIR = bin/
+
+all: ${BIN_DIR} dpc2sim-stream dpc2sim-ampm-lite build-dpc2
+
+$(BIN_DIR):
+	mkdir -p $@
 
 run: dpc2sim-stream dpc2sim-ampm-lite
 	zcat traces/mcf_trace2.dpc.gz | ./bin/dpc2sim-stream
